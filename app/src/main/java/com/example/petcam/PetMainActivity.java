@@ -12,6 +12,7 @@ public class PetMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petmain);
 
+
         WebView webView = (WebView)findViewById(R.id.petview);
         webView.setPadding(0,0,0,0);
         //webView.setInitialScale(100);
@@ -21,8 +22,10 @@ public class PetMainActivity extends AppCompatActivity {
         webView.getSettings().setUseWideViewPort(true);
         //webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
 
-        String url ="121.137.214.70:8091/javascript_simple.html";
-        webView.loadUrl(url);
+
+        webView.setWebViewClient(new SslWebViewConnect());
+
+        webView.loadUrl("http://nutsiper.duckdns.org:8091/javascript_simple.html");
 
 
     }
